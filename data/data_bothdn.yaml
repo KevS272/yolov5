@@ -1,0 +1,14 @@
+path: ./
+train: sets/train_dn/images/
+val: sets/valid_dn/images/
+test: sets/test_dn/images/
+
+nc: 13
+names: ['bicycle', 'bus', 'car', 'motorcycle', 'other person', 'other vehicle', 'pedestrian', 'rider', 'traffic light', 'traffic sign', 'trailer', 'train', 'truck']
+
+roboflow:
+  workspace: uni-koped
+  project: rmsw_5k_night
+  version: 2
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/uni-koped/rmsw_5k_night/dataset/2

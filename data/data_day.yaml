@@ -1,0 +1,14 @@
+path: ./
+train: sets/train_day/images/
+val: sets/valid_day/images/
+test: sets/test_day/images/
+
+nc: 13
+names: ['bicycle', 'bus', 'car', 'motorcycle', 'other person', 'other vehicle', 'pedestrian', 'rider', 'traffic light', 'traffic sign', 'trailer', 'train', 'truck']
+
+roboflow:
+  workspace: project
+  project: rmsw_5k_day
+  version: 2
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/project/rmsw_5k_day/dataset/2
