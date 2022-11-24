@@ -28,6 +28,7 @@ from pathlib import Path
 import numpy as np
 import torch
 from tqdm import tqdm
+import csv
 
 FILE = Path(__file__).resolve()
 ROOT = FILE.parents[0]  # YOLOv5 root directory
@@ -276,6 +277,18 @@ def run(
         ap50, ap = ap[:, 0], ap.mean(1)  # AP@0.5, AP@0.5:0.95
         mp, mr, map50, map = p.mean(), r.mean(), ap50.mean(), ap.mean()
     nt = np.bincount(stats[3].astype(int), minlength=nc)  # number of targets per class
+    with open(save_dir / f'metrics.npy', 'wb') as f:
+        np.save(f,tp)
+        np.save(f,fp)
+        np.save(f,p)
+        np.save(f,r)
+        np.save(f,f1)
+        np.save(f,ap)
+        np.save(f,ap_class)
+        np.save(f,mp)
+        np.save(f,mr)
+        np.save(f,map50)
+        np.save(f,map)
 
     # Print results
     pf = '%22s' + '%11i' * 2 + '%11.3g' * 4  # print format
