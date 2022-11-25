@@ -3,8 +3,8 @@ train: sets/train_night/images/
 val: sets/valid_night/images/
 test: sets/test_night/images/
 
-nc: 13
-names: ['bicycle', 'bus', 'car', 'motorcycle', 'other person', 'other vehicle', 'pedestrian', 'rider', 'traffic light', 'traffic sign', 'trailer', 'train', 'truck']
+nc: 4
+names: ['car', 'pedestrian', 'traffic light', 'traffic sign']
 
 roboflow:
   workspace: uni-koped

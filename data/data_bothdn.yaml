@@ -3,8 +3,8 @@ train: sets/train_dn/images/
 val: sets/valid_dn/images/
 test: sets/test_dn/images/
 
-nc: 13
-names: ['bicycle', 'bus', 'car', 'motorcycle', 'other person', 'other vehicle', 'pedestrian', 'rider', 'traffic light', 'traffic sign', 'trailer', 'train', 'truck']
+nc: 4
+names: ['car', 'pedestrian', 'traffic light', 'traffic sign']
 
 roboflow:
   workspace: uni-koped
