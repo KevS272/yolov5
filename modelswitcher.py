@@ -122,7 +122,7 @@ def run(
         save_conf=False,  # save confidences in --save-txt labels
         save_json=False,  # save a COCO-JSON results file
         project=ROOT / 'runs/val',  # save to project/name
-        name='exp',  # save to project/name
+        name='',  # save to project/name
         exist_ok=False,  # existing project/name ok, do not increment
         half=True,  # use FP16 half-precision inference
         dnn=False,  # use OpenCV DNN for ONNX inference
@@ -180,7 +180,7 @@ def run(
     num_ftrs = switcher.classifier[0].in_features
     switcher.classifier = nn.Linear(num_ftrs, 2)
     print("Weights-path for model switcher: ", weightsmn[0])
-    switcher.load_state_dict(torch.load(weightsmn[0]), strict=False)
+    switcher.load_state_dict(torch.load(weightsmn[0], map_location=device), strict=False)
     switcher = switcher.to(device)
     switcher.eval()
 
@@ -321,6 +321,8 @@ def run(
     nt = np.bincount(stats[3].astype(int), minlength=nc)  # number of targets per class
 
     with open(save_dir / f'metrics.npy', 'wb') as f:
+        for sss in stats:
+            np.save(f,sss)
         np.save(f,tp)
         np.save(f,fp)
         np.save(f,p)

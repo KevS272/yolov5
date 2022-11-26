@@ -278,6 +278,8 @@ def run(
         mp, mr, map50, map = p.mean(), r.mean(), ap50.mean(), ap.mean()
     nt = np.bincount(stats[3].astype(int), minlength=nc)  # number of targets per class
     with open(save_dir / f'metrics.npy', 'wb') as f:
+        for sss in stats:
+            np.save(f,sss)
         np.save(f,tp)
         np.save(f,fp)
         np.save(f,p)
