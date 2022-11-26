@@ -1,10 +1,13 @@
+#!/bin/sh 
 DEVICE=""
-if [ -z "$1" ]
+if [ "$USER" = "sabolc" ]
 then
-      DEVICE=cuda
+      DEVICE=cpu
 else
-      DEVICE=$1
+      DEVICE=cuda
 fi
+
+echo using $DEVICE
 
 python3 modelswitcher.py \
     --data data/data_bothdn.yaml \
@@ -14,4 +17,5 @@ python3 modelswitcher.py \
     --weights best_d.pt \
     --weights2 best_n.pt \
     --task test \
+    --name "switcher" \
     --device $DEVICE
