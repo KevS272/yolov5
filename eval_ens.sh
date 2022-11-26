@@ -4,7 +4,7 @@ if [ "$USER" = "sabolc" ]
 then
       DEVICE=cpu
 else
-      DEVICE=cuda
+      DEVICE=cuda:0
 fi
 
 echo using $DEVICE
