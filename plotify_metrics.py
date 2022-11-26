@@ -99,32 +99,56 @@ def plotcurves():
     m_r = np.stack(m_r, axis=1)
     e_r = np.stack(e_r, axis=1)
 
+    plt.rcParams.update({
+        "pgf.texsystem": "pdflatex",
+        'font.family': 'serif',
+        'text.usetex': True,
+        'pgf.rcfonts': False,
+    })
+
+
     plt.title("PR curves")
-    plt.plot(s_px, s_py.mean(1), label="switch")
-    plt.plot(m_px, m_py.mean(1), label="mono")
-    plt.plot(e_px, e_py.mean(1), label="ens")
+    plt.plot(s_px, s_py.mean(1), label="model-switcher")
+    plt.plot(m_px, m_py.mean(1), label="singular")
+    plt.plot(e_px, e_py.mean(1), label="ensemble")
     plt.legend()
+    plt.grid()
+    plt.ylim([0,None])
+    plt.xlim([0,1])
+    plt.savefig('PR_curve.pgf')
     plt.show()
 
     plt.title("F1 curves")
-    plt.plot(s_px, s_f1.mean(1), label="switch")
-    plt.plot(m_px, m_f1.mean(1), label="mono")
-    plt.plot(e_px, e_f1.mean(1), label="ens")
+    plt.plot(s_px, s_f1.mean(1), label="model-switcher")
+    plt.plot(m_px, m_f1.mean(1), label="singular")
+    plt.plot(e_px, e_f1.mean(1), label="ensemble")
     plt.legend()
+    plt.grid()
+    plt.ylim([0,None])
+    plt.xlim([0,1])
+    plt.savefig('F1_curve.pgf')
     plt.show()
 
     plt.title("P curves")
-    plt.plot(s_px, s_p.mean(1), label="switch")
-    plt.plot(m_px, m_p.mean(1), label="mono")
-    plt.plot(e_px, e_p.mean(1), label="ens")
+    plt.plot(s_px, s_p.mean(1), label="model-switcher")
+    plt.plot(m_px, m_p.mean(1), label="singular")
+    plt.plot(e_px, e_p.mean(1), label="ensemble")
     plt.legend()
+    plt.grid()
+    plt.ylim([0,None])
+    plt.xlim([0,1])
+    plt.savefig('P_curve.pgf')
     plt.show()
 
     plt.title("R curves")
-    plt.plot(s_px, s_r.mean(1), label="switch")
-    plt.plot(m_px, m_r.mean(1), label="mono")
-    plt.plot(e_px, e_r.mean(1), label="ens")
+    plt.plot(s_px, s_r.mean(1), label="model-switcher")
+    plt.plot(m_px, m_r.mean(1), label="singular")
+    plt.plot(e_px, e_r.mean(1), label="ensemble")
     plt.legend()
+    plt.grid()
+    plt.ylim([0,None])
+    plt.xlim([0,1])
+    plt.savefig('R_curve.pgf')
     plt.show()
 
 printmetrics()
