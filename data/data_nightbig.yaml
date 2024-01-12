@@ -1,0 +1,14 @@
+path: ./
+train: sets/train_nightbig/images/
+val: sets/valid_nightbig/images/
+test: sets/test_nightbig/images/
+
+nc: 4
+names: ['car', 'pedestrian', 'traffic light', 'traffic sign']
+
+roboflow:
+  workspace: uni-koped
+  project: rmsw_5k_night
+  version: 2
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/uni-koped/rmsw_5k_night/dataset/2

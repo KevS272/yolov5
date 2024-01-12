@@ -1,0 +1,14 @@
+path: ./
+train: sets/train_daybig/images/
+val: sets/valid_daybig/images/
+test: sets/test_daybig/images/
+
+nc: 4
+names: ['car', 'pedestrian', 'traffic light', 'traffic sign']
+
+roboflow:
+  workspace: project
+  project: rmsw_5k_day
+  version: 2
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/project/rmsw_5k_day/dataset/2

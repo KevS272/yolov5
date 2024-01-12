@@ -56,9 +56,13 @@ def printmetrics():
 
 
 
-switcher_path = glob.glob("runs/val/switcher*/curves.npy")[-1]
-ensemble_path = glob.glob("runs/val/ensemble*/curves.npy")[-1]
-mono_path = glob.glob("runs/val/mon*/curves.npy")[-1]
+switcher_path = sorted(glob.glob("runs/val/switcher*/curves.npy"))[-1]
+ensemble_path = sorted(glob.glob("runs/val/ensemble*/curves.npy"))[-1]
+mono_path = sorted(glob.glob("runs/val/mon*/curves.npy"))[-1]
+
+print("switcher path: ", switcher_path)
+print("ensemble path: ", ensemble_path)
+print("mono path: ", mono_path)
 
 def plotcurves():
     s_dic = np.load(switcher_path, allow_pickle=True).item(0)
@@ -103,7 +107,8 @@ def plotcurves():
         "pgf.texsystem": "pdflatex",
         'font.family': 'serif',
         'text.usetex': True,
-        'pgf.rcfonts': False,
+        # 'pgf.rcfonts': False,
+        'figure.dpi': 140*3,
         "figure.figsize": (4,3)
     })
 
@@ -116,7 +121,7 @@ def plotcurves():
     plt.ylim([0,None])
     plt.xlim([0,1])
     plt.tight_layout()
-    plt.savefig('PR_curve.pgf')
+    plt.savefig('PR_curve.png')
     plt.show()
 
     plt.title("F1 curves")
@@ -128,7 +133,7 @@ def plotcurves():
     plt.ylim([0,None])
     plt.xlim([0,1])
     plt.tight_layout()
-    plt.savefig('F1_curve.pgf')
+    plt.savefig('F1_curve.png')
     plt.show()
 
     plt.title("P curves")
@@ -140,7 +145,7 @@ def plotcurves():
     plt.ylim([0,None])
     plt.xlim([0,1])
     plt.tight_layout()
-    plt.savefig('P_curve.pgf')
+    plt.savefig('P_curve.png')
     plt.show()
 
     plt.title("R curves")
@@ -152,8 +157,8 @@ def plotcurves():
     plt.ylim([0,None])
     plt.xlim([0,1])
     plt.tight_layout()
-    plt.savefig('R_curve.pgf')
+    plt.savefig('R_curve.png')
     plt.show()
 
-printmetrics()
+# printmetrics()
 plotcurves()

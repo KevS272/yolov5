@@ -10,7 +10,7 @@ fi
 echo using $DEVICE
 
 python3 modelswitcher.py \
-    --data data/data_bothdn.yaml \
+    --data data/data_viz.yaml \
     --weightsmn ../w128.pth \
     --interpol 128 \
     --batch-size 1 \
